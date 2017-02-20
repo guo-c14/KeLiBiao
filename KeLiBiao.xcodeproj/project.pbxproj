@@ -14,8 +14,13 @@
 		A2D45D3E1E589C4A00287145 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D45D3C1E589C4A00287145 /* LaunchScreen.storyboard */; };
 		A2D45D541E58AA8F00287145 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D45D531E58AA8F00287145 /* MainViewController.swift */; };
 		A2D45D561E58AB8300287145 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D45D551E58AB8300287145 /* Request.swift */; };
-		A2D992C11E597F9600A7702C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992C01E597F9600A7702C /* SearchResultViewController.swift */; };
-		A2D992C31E597FAF00A7702C /* SearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992C21E597FAF00A7702C /* SearchResultDetailViewController.swift */; };
+		A2D992C11E597F9600A7702C /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992C01E597F9600A7702C /* RouteTableViewController.swift */; };
+		A2D992C31E597FAF00A7702C /* StationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992C21E597FAF00A7702C /* StationTableViewController.swift */; };
+		A2D992C51E59859E00A7702C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992C41E59859E00A7702C /* Parser.swift */; };
+		A2D992C71E5985A900A7702C /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992C61E5985A900A7702C /* Station.swift */; };
+		A2D992CC1E59B46500A7702C /* RouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992CB1E59B46500A7702C /* RouteCell.swift */; };
+		A2D992CE1E59D73700A7702C /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992CD1E59D73700A7702C /* Route.swift */; };
+		A2D992D01E59D78600A7702C /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D992CF1E59D78600A7702C /* StationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +46,13 @@
 		A2D45D441E589C4A00287145 /* KeLiBiaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeLiBiaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D45D531E58AA8F00287145 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A2D45D551E58AB8300287145 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		A2D992C01E597F9600A7702C /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
-		A2D992C21E597FAF00A7702C /* SearchResultDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultDetailViewController.swift; sourceTree = "<group>"; };
+		A2D992C01E597F9600A7702C /* RouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
+		A2D992C21E597FAF00A7702C /* StationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationTableViewController.swift; sourceTree = "<group>"; };
+		A2D992C41E59859E00A7702C /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		A2D992C61E5985A900A7702C /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		A2D992CB1E59B46500A7702C /* RouteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCell.swift; sourceTree = "<group>"; };
+		A2D992CD1E59D73700A7702C /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		A2D992CF1E59D78600A7702C /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,17 +113,30 @@
 		A2D45D321E589C4A00287145 /* KeLiBiao */ = {
 			isa = PBXGroup;
 			children = (
+				A2D45D331E589C4A00287145 /* AppDelegate.swift */,
 				A2D45D3C1E589C4A00287145 /* LaunchScreen.storyboard */,
 				A2D45D371E589C4A00287145 /* Main.storyboard */,
-				A2D45D331E589C4A00287145 /* AppDelegate.swift */,
 				A2D45D531E58AA8F00287145 /* MainViewController.swift */,
-				A2D992C01E597F9600A7702C /* SearchResultViewController.swift */,
-				A2D992C21E597FAF00A7702C /* SearchResultDetailViewController.swift */,
-				A2D45D551E58AB8300287145 /* Request.swift */,
+				A2D992C01E597F9600A7702C /* RouteTableViewController.swift */,
+				A2D992CB1E59B46500A7702C /* RouteCell.swift */,
+				A2D992C21E597FAF00A7702C /* StationTableViewController.swift */,
+				A2D992CF1E59D78600A7702C /* StationCell.swift */,
+				A2D992C81E5985BD00A7702C /* Core */,
 				A2D45D3A1E589C4A00287145 /* Assets.xcassets */,
 				A2D45D3F1E589C4A00287145 /* Info.plist */,
 			);
 			path = KeLiBiao;
+			sourceTree = "<group>";
+		};
+		A2D992C81E5985BD00A7702C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A2D45D551E58AB8300287145 /* Request.swift */,
+				A2D992C41E59859E00A7702C /* Parser.swift */,
+				A2D992CD1E59D73700A7702C /* Route.swift */,
+				A2D992C61E5985A900A7702C /* Station.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,10 +295,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D992C31E597FAF00A7702C /* SearchResultDetailViewController.swift in Sources */,
+				A2D992D01E59D78600A7702C /* StationCell.swift in Sources */,
+				A2D992CE1E59D73700A7702C /* Route.swift in Sources */,
+				A2D992C71E5985A900A7702C /* Station.swift in Sources */,
+				A2D992CC1E59B46500A7702C /* RouteCell.swift in Sources */,
+				A2D992C31E597FAF00A7702C /* StationTableViewController.swift in Sources */,
 				A2D45D541E58AA8F00287145 /* MainViewController.swift in Sources */,
+				A2D992C51E59859E00A7702C /* Parser.swift in Sources */,
 				A2D45D561E58AB8300287145 /* Request.swift in Sources */,
-				A2D992C11E597F9600A7702C /* SearchResultViewController.swift in Sources */,
+				A2D992C11E597F9600A7702C /* RouteTableViewController.swift in Sources */,
 				A2D45D341E589C4A00287145 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W38SF653L6;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = KeLiBiao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

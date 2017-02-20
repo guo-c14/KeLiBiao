@@ -9,6 +9,7 @@
 import UIKit
 import TextFieldEffects
 import SwiftMessages
+import SwiftyButton
 
 class MainViewController: UIViewController {
 	
@@ -20,6 +21,12 @@ class MainViewController: UIViewController {
 		}
 		sender.cancelsTouchesInView = false
 	}
+	
+	@IBAction func tapSearchButton(_ sender: FlatButton) {
+		searchTextField.resignFirstResponder()
+	}
+	
+	private var response: String?
 	
 	fileprivate let regex = try! NSRegularExpression(pattern: "^[\\u4e00-\\u9fa5a-zA-Z0-9]+$", options: [])
 	
@@ -44,23 +51,38 @@ class MainViewController: UIViewController {
 		}
 	}
 	
-	private func showMessage(theme: Theme, title: String?, body: String?, duration: SwiftMessages.Duration) {
-		let messageView: MessageView = MessageView.viewFromNib(layout: .CardView)
-		messageView.configureContent(title: title, body: body, iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: { _ in SwiftMessages.hide() })
-		messageView.configureTheme(theme, iconStyle: .light)
-		messageView.configureDropShadow()
-		messageView.button?.isHidden = true
-		var config = SwiftMessages.Config()
-		config.duration = duration
-		config.dimMode = .gray(interactive: true)
-		config.shouldAutorotate = true
-		config.interactiveHide = true
-		config.presentationContext = .window(windowLevel: UIWindowLevelStatusBar)
-		SwiftMessages.show(config: config, view: messageView)
-	}
-	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	
+		if let identifier = segue.identifier {
+			switch identifier {
+			case "SearchByStation":
+				if let viewController = segue.destination as? RouteTableViewController {
+					let searchText = searchTextField.text?.uppercased() ?? ""
+					Request.searchRouteList(searchText: searchText, searchType: .byStation) { [weak weakSelf = self] response in
+						if let response = response {
+							viewController.routes = Parser.parseRouteList(response)
+							viewController.title = "线路"
+						} else if searchText == weakSelf?.searchTextField.text?.uppercased() ?? "" {
+							_ = viewController.navigationController?.popViewController(animated: true)
+							weakSelf?.showMessage(theme: .warning, title: "没有查询到符合条件的数据！", body: nil, duration: .forever)
+						}
+					}
+				}
+			case "SearchByRoute":
+				if let viewController = segue.destination as? RouteTableViewController {
+					let searchText = searchTextField.text?.uppercased() ?? ""
+					Request.searchRouteList(searchText: searchText, searchType: .byRoute) { [weak weakSelf = self] response in
+						if let response = response {
+							viewController.routes = Parser.parseRouteList(response)
+							viewController.title = "线路"
+						} else if searchText == weakSelf?.searchTextField.text?.uppercased() ?? "" {
+							_ = viewController.navigationController?.popViewController(animated: true)
+							weakSelf?.showMessage(theme: .warning, title: "没有查询到符合条件的数据！", body: nil, duration: .forever)
+						}
+					}
+				}
+			default: break
+			}
+		}
 	}
 	
 }
@@ -85,6 +107,25 @@ extension String {
 	
 	fileprivate var nsRange: NSRange {
 		return NSRange(location: 0, length: utf16.count)
+	}
+	
+}
+
+extension UIViewController {
+	
+	func showMessage(theme: Theme, title: String?, body: String?, duration: SwiftMessages.Duration) {
+		let messageView: MessageView = MessageView.viewFromNib(layout: .CardView)
+		messageView.configureContent(title: title, body: body, iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: { _ in SwiftMessages.hide() })
+		messageView.configureTheme(theme, iconStyle: .light)
+		messageView.configureDropShadow()
+		messageView.button?.isHidden = true
+		var config = SwiftMessages.Config()
+		config.duration = duration
+		config.dimMode = .gray(interactive: true)
+		config.shouldAutorotate = true
+		config.interactiveHide = true
+		config.presentationContext = .window(windowLevel: UIWindowLevelStatusBar)
+		SwiftMessages.show(config: config, view: messageView)
 	}
 	
 }

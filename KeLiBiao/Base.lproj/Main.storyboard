@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PNS-jz-bwh">
-                                <rect key="frame" x="24" y="245.5" width="327" height="116"/>
+                                <rect key="frame" x="24" y="163.5" width="327" height="116"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="站名电报码或线名" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A5X-Pt-Nha" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="60"/>
@@ -66,7 +66,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="oRS-Y4-60P" kind="show" identifier="searchByStation" id="mhv-t5-tCm">
+                                                    <action selector="tapSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ry-U6-z2g"/>
+                                                    <segue destination="oRS-Y4-60P" kind="show" identifier="SearchByStation" id="mhv-t5-tCm">
                                                         <segue key="commit" inheritsFrom="parent" id="zhG-jD-yCL"/>
                                                         <segue key="preview" inheritsFrom="commit" id="9tJ-2c-cfd"/>
                                                     </segue>
@@ -90,7 +91,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="oRS-Y4-60P" kind="show" identifier="searchByRoute" id="6HW-zi-eIC">
+                                                    <action selector="tapSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VF6-tj-b25"/>
+                                                    <segue destination="oRS-Y4-60P" kind="show" identifier="SearchByRoute" id="6HW-zi-eIC">
                                                         <segue key="commit" inheritsFrom="parent" id="igL-iG-x27"/>
                                                         <segue key="preview" inheritsFrom="commit" id="1wV-uO-Rk0"/>
                                                     </segue>
@@ -107,7 +109,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="PNS-jz-bwh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-30" id="J2i-BZ-KCj"/>
+                            <constraint firstItem="PNS-jz-bwh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-80" id="J2i-BZ-KCj"/>
                             <constraint firstAttribute="trailing" secondItem="PNS-jz-bwh" secondAttribute="trailing" constant="24" id="aJM-ZK-Ntw"/>
                             <constraint firstItem="PNS-jz-bwh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="aQE-bj-a21"/>
                         </constraints>
@@ -115,7 +117,9 @@
                             <outletCollection property="gestureRecognizers" destination="FXs-fi-Se1" appends="YES" id="DNs-1P-S7z"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="客里表查询" id="W0K-dk-rFp"/>
+                    <navigationItem key="navigationItem" title="客里表查询" id="W0K-dk-rFp">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="jPl-mV-Mhv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchTextField" destination="A5X-Pt-Nha" id="jLC-v2-DXQ"/>
                     </connections>
@@ -127,24 +131,113 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="281" y="27"/>
+            <point key="canvasLocation" x="118" y="27"/>
         </scene>
-        <!--Search Result View Controller-->
+        <!--Route Table View Controller-->
         <scene sceneID="QZV-eZ-JeP">
             <objects>
-                <tableViewController id="oRS-Y4-60P" customClass="SearchResultViewController" customModule="KeLiBiao" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bwB-X7-ZmL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController id="oRS-Y4-60P" customClass="RouteTableViewController" customModule="KeLiBiao" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bwB-X7-ZmL">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="lmv-JM-3uP">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-aT-c00">
+                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="线名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="FyR-dX-JDe">
+                                            <rect key="frame" x="0.0" y="0.0" width="86" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起站" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QGu-zb-8Ja">
+                                            <rect key="frame" x="86" y="0.0" width="85.5" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="止站" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JIn-jl-9Mj">
+                                            <rect key="frame" x="171.5" y="0.0" width="86" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="里程" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="EJn-Sa-qCf">
+                                            <rect key="frame" x="257.5" y="0.0" width="85.5" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="PWw-aT-c00" firstAttribute="leading" secondItem="lmv-JM-3uP" secondAttribute="leading" constant="16" id="BRm-rU-vRr"/>
+                                <constraint firstItem="PWw-aT-c00" firstAttribute="top" secondItem="lmv-JM-3uP" secondAttribute="top" id="kf9-fY-zW2"/>
+                                <constraint firstAttribute="trailing" secondItem="PWw-aT-c00" secondAttribute="trailing" constant="16" id="oia-hB-Mdc"/>
+                                <constraint firstAttribute="bottom" secondItem="PWw-aT-c00" secondAttribute="bottom" id="xjN-Ew-vVU"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WeR-GX-qHM">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RouteCell" rowHeight="44" id="WeR-GX-qHM" customClass="RouteCell" customModule="KeLiBiao" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WeR-GX-qHM" id="4sl-gF-hzI">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uLy-Mg-rzh">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0US-fX-O0Q">
+                                                    <rect key="frame" x="0.0" y="0.0" width="86" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qzp-H3-pBT">
+                                                    <rect key="frame" x="86" y="0.0" width="85.5" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="A5y-EV-sGE">
+                                                    <rect key="frame" x="171.5" y="0.0" width="86" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YHq-11-1p9">
+                                                    <rect key="frame" x="257.5" y="0.0" width="85.5" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.2093112766060051" green="0.45267108250136734" blue="0.79565915198566739" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="uLy-Mg-rzh" secondAttribute="trailing" constant="16" id="Q8g-PG-Hkn"/>
+                                        <constraint firstAttribute="bottom" secondItem="uLy-Mg-rzh" secondAttribute="bottom" id="eDm-no-dHw"/>
+                                        <constraint firstItem="uLy-Mg-rzh" firstAttribute="leading" secondItem="4sl-gF-hzI" secondAttribute="leading" constant="16" id="nui-Xb-4U5"/>
+                                        <constraint firstItem="uLy-Mg-rzh" firstAttribute="top" secondItem="4sl-gF-hzI" secondAttribute="top" id="o6i-ur-1W0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="kilometeageLabel" destination="YHq-11-1p9" id="fwa-nJ-Mfb"/>
+                                    <outlet property="nameLabel" destination="0US-fX-O0Q" id="zeo-7U-D9i"/>
+                                    <outlet property="originStationLabel" destination="qzp-H3-pBT" id="cz3-pF-7ED"/>
+                                    <outlet property="teminalStationLabel" destination="A5y-EV-sGE" id="bP4-gz-oc9"/>
+                                    <segue destination="qLa-Ck-qFW" kind="show" identifier="ShowStationTable" id="Fb0-QZ-7yo">
+                                        <segue key="commit" inheritsFrom="parent" id="Rsi-d0-BHk"/>
+                                        <segue key="preview" inheritsFrom="commit" id="fP4-rg-Nft"/>
+                                    </segue>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -155,14 +248,157 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wo-e6-DyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="27"/>
+            <point key="canvasLocation" x="982" y="27"/>
+        </scene>
+        <!--Station Table View Controller-->
+        <scene sceneID="WpK-ld-08S">
+            <objects>
+                <tableViewController id="qLa-Ck-qFW" customClass="StationTableViewController" customModule="KeLiBiao" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="vlA-B6-vaQ">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="k9I-dD-goJ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Sna-vb-DlS">
+                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gR0-9g-1aR">
+                                            <rect key="frame" x="0.0" y="0.0" width="57" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="里程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="coY-DD-ehr">
+                                            <rect key="frame" x="57" y="0.0" width="57.5" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dwi-5d-hNz">
+                                            <rect key="frame" x="114.5" y="0.0" width="57" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电报" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pQT-zG-M7J">
+                                            <rect key="frame" x="171.5" y="0.0" width="57" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMIS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="MFj-iA-KAm">
+                                            <rect key="frame" x="228.5" y="0.0" width="57.5" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="局" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bkk-BW-zWK">
+                                            <rect key="frame" x="286" y="0.0" width="57" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Sna-vb-DlS" secondAttribute="bottom" id="N9W-Lm-1kf"/>
+                                <constraint firstAttribute="trailing" secondItem="Sna-vb-DlS" secondAttribute="trailing" constant="16" id="Ur4-90-hvA"/>
+                                <constraint firstItem="Sna-vb-DlS" firstAttribute="leading" secondItem="k9I-dD-goJ" secondAttribute="leading" constant="16" id="da3-Fn-pPk"/>
+                                <constraint firstItem="Sna-vb-DlS" firstAttribute="top" secondItem="k9I-dD-goJ" secondAttribute="top" id="svJ-vY-mg9"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StationCell" id="tF3-d6-oPR" customClass="StationCell" customModule="KeLiBiao" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tF3-d6-oPR" id="U8o-ZR-Fw6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zpK-uI-o0o">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kmu-NN-oee">
+                                                    <rect key="frame" x="0.0" y="0.0" width="57" height="43"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="里程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Jd-si-42z">
+                                                    <rect key="frame" x="57" y="0.0" width="57.5" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="n9P-Pg-99Q">
+                                                    <rect key="frame" x="114.5" y="0.0" width="57" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电报" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-BN-9YN">
+                                                    <rect key="frame" x="171.5" y="0.0" width="57" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMIS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kZb-LH-CTb">
+                                                    <rect key="frame" x="228.5" y="0.0" width="57.5" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="局" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Xn-kH-muq">
+                                                    <rect key="frame" x="286" y="0.0" width="57" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zpK-uI-o0o" firstAttribute="leading" secondItem="U8o-ZR-Fw6" secondAttribute="leading" constant="16" id="C12-B5-ZKe"/>
+                                        <constraint firstAttribute="bottom" secondItem="zpK-uI-o0o" secondAttribute="bottom" id="OMc-gP-nZy"/>
+                                        <constraint firstAttribute="trailing" secondItem="zpK-uI-o0o" secondAttribute="trailing" constant="16" id="btl-8N-vpg"/>
+                                        <constraint firstItem="zpK-uI-o0o" firstAttribute="top" secondItem="U8o-ZR-Fw6" secondAttribute="top" id="f0F-TS-wl3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="kilometeageLabel" destination="9Jd-si-42z" id="I2v-Tv-3ll"/>
+                                    <outlet property="limitLabel" destination="n9P-Pg-99Q" id="KWQ-Hz-gQN"/>
+                                    <outlet property="nameLabel" destination="Kmu-NN-oee" id="chc-L0-Cvk"/>
+                                    <outlet property="railwayBureauLabel" destination="7Xn-kH-muq" id="wRE-tw-Oi3"/>
+                                    <outlet property="telegraphCodeLabel" destination="tlS-BN-9YN" id="E76-m8-84e"/>
+                                    <outlet property="tmisCodeLabel" destination="kZb-LH-CTb" id="IlJ-cD-2e2"/>
+                                    <segue destination="oRS-Y4-60P" kind="show" identifier="ShowRouteTable" id="gmr-gx-W9b">
+                                        <segue key="commit" inheritsFrom="parent" id="3GT-1q-yiC"/>
+                                        <segue key="preview" inheritsFrom="commit" id="wQX-mY-1VR"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qLa-Ck-qFW" id="UKP-NC-VDg"/>
+                            <outlet property="delegate" destination="qLa-Ck-qFW" id="v6Z-Zm-ukg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FsJ-r4-44B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x9c-s1-ev3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AhY-TE-nfk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U8m-fA-CUE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="U8m-fA-CUE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -177,6 +413,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6HW-zi-eIC"/>
+        <segue reference="Fb0-QZ-7yo"/>
+        <segue reference="zhG-jD-yCL"/>
     </inferredMetricsTieBreakers>
 </document>
