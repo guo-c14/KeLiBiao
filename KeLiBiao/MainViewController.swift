@@ -57,26 +57,26 @@ class MainViewController: UIViewController {
 			case "SearchByStation":
 				if let viewController = segue.destination as? RouteTableViewController {
 					let searchText = searchTextField.text?.uppercased() ?? ""
-					Request.searchRouteList(searchText: searchText, searchType: .byStation) { [weak weakSelf = self] response in
+					Request.searchRouteList(searchText: searchText, searchType: .byStation) { response in
 						if let response = response {
 							viewController.routes = Parser.parseRouteList(response)
 							viewController.title = "线路"
-						} else if searchText == weakSelf?.searchTextField.text?.uppercased() ?? "" {
-							_ = viewController.navigationController?.popViewController(animated: true)
-							weakSelf?.showMessage(theme: .warning, title: "没有查询到符合条件的数据！", body: nil, duration: .forever)
+						} else if let navigationController = viewController.navigationController {
+							viewController.showMessage(theme: .warning, title: "没有查询到符合条件的数据！", body: nil, duration: .forever)
+							_ = navigationController.popViewController(animated: true)
 						}
 					}
 				}
 			case "SearchByRoute":
 				if let viewController = segue.destination as? RouteTableViewController {
 					let searchText = searchTextField.text?.uppercased() ?? ""
-					Request.searchRouteList(searchText: searchText, searchType: .byRoute) { [weak weakSelf = self] response in
+					Request.searchRouteList(searchText: searchText, searchType: .byRoute) { response in
 						if let response = response {
 							viewController.routes = Parser.parseRouteList(response)
 							viewController.title = "线路"
-						} else if searchText == weakSelf?.searchTextField.text?.uppercased() ?? "" {
-							_ = viewController.navigationController?.popViewController(animated: true)
-							weakSelf?.showMessage(theme: .warning, title: "没有查询到符合条件的数据！", body: nil, duration: .forever)
+						} else if let navigationController = viewController.navigationController {
+							viewController.showMessage(theme: .warning, title: "没有查询到符合条件的数据！", body: nil, duration: .forever)
+							_ = navigationController.popViewController(animated: true)
 						}
 					}
 				}

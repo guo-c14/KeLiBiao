@@ -33,19 +33,18 @@ class StationTableViewController: UITableViewController {
         return cell
     }
 	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if let identifier = segue.identifier {
-			switch identifier {
-			case "ShowRouteTable":
-				if let viewController = segue.destination as? RouteTableViewController, let station = (sender as? StationCell)?.station {
-					Request.searchRouteList(searchText: station.telegraphCode, searchType: .byStation) { response in
-						if let response = response {
-							viewController.routes = Parser.parseRouteList(response)
-							viewController.title = "线路"
-						}
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if let viewController = navigationController?.viewControllers[1] as? RouteTableViewController {
+			if let station = (tableView.cellForRow(at: indexPath) as? StationCell)?.station {
+				Request.searchRouteList(searchText: station.telegraphCode, searchType: .byStation) { response in
+					if let response = response {
+						viewController.routes = Parser.parseRouteList(response)
+						viewController.title = "线路"
+					} else if let _ = viewController.navigationController {
+						viewController.showMessage(theme: .warning, title: "没有查询到符合条件的数据！", body: nil, duration: .forever)
 					}
+					_ = viewController.navigationController?.popViewController(animated: true)
 				}
-			default: break
 			}
 		}
 	}

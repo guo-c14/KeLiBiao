@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -138,14 +139,14 @@
             <objects>
                 <tableViewController id="oRS-Y4-60P" customClass="RouteTableViewController" customModule="KeLiBiao" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bwB-X7-ZmL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="lmv-JM-3uP">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-aT-c00">
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-aT-c00">
                                     <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="线名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="FyR-dX-JDe">
@@ -191,7 +192,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="uLy-Mg-rzh">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uLy-Mg-rzh">
                                             <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0US-fX-O0Q">
@@ -245,6 +246,9 @@
                             <outlet property="delegate" destination="oRS-Y4-60P" id="GVc-NI-702"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="OhT-zp-6Rh">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="kER-aW-0gV"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wo-e6-DyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,53 +259,60 @@
             <objects>
                 <tableViewController id="qLa-Ck-qFW" customClass="StationTableViewController" customModule="KeLiBiao" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="vlA-B6-vaQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="k9I-dD-goJ">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Sna-vb-DlS">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sna-vb-DlS">
                                     <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gR0-9g-1aR">
-                                            <rect key="frame" x="0.0" y="0.0" width="67" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="里程" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="coY-DD-ehr">
-                                            <rect key="frame" x="67" y="0.0" width="66.5" height="44"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="里程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="coY-DD-ehr">
+                                            <rect key="frame" x="90" y="0.0" width="45.5" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dwi-5d-hNz">
-                                            <rect key="frame" x="133.5" y="0.0" width="33.5" height="44"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dwi-5d-hNz">
+                                            <rect key="frame" x="135.5" y="0.0" width="45" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电报" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pQT-zG-M7J">
-                                            <rect key="frame" x="167" y="0.0" width="66.5" height="44"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电报" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pQT-zG-M7J">
+                                            <rect key="frame" x="180.5" y="0.0" width="57" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMIS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="MFj-iA-KAm">
-                                            <rect key="frame" x="233.5" y="0.0" width="76" height="44"/>
+                                            <rect key="frame" x="237.5" y="0.0" width="60.5" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="局" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bkk-BW-zWK">
-                                            <rect key="frame" x="309.5" y="0.0" width="33.5" height="44"/>
+                                            <rect key="frame" x="298" y="0.0" width="45" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Bkk-BW-zWK" firstAttribute="width" secondItem="coY-DD-ehr" secondAttribute="width" id="9Th-iz-LPq"/>
+                                        <constraint firstItem="Bkk-BW-zWK" firstAttribute="width" secondItem="MFj-iA-KAm" secondAttribute="width" multiplier="0.75" id="9uX-w9-ctP"/>
+                                        <constraint firstItem="Bkk-BW-zWK" firstAttribute="width" secondItem="gR0-9g-1aR" secondAttribute="width" multiplier="0.5" id="GFV-Qx-Ohw"/>
+                                        <constraint firstItem="Bkk-BW-zWK" firstAttribute="width" secondItem="pQT-zG-M7J" secondAttribute="width" multiplier="0.8" id="RB1-o7-hIf"/>
+                                        <constraint firstItem="Bkk-BW-zWK" firstAttribute="width" secondItem="Dwi-5d-hNz" secondAttribute="width" id="bmg-lB-QEi"/>
+                                    </constraints>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,46 +331,53 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zpK-uI-o0o">
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpK-uI-o0o">
                                             <rect key="frame" x="16" y="0.0" width="343" height="43"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kmu-NN-oee">
-                                                    <rect key="frame" x="0.0" y="0.0" width="67" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="43"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                                     <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="里程" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Jd-si-42z">
-                                                    <rect key="frame" x="67" y="0.0" width="66.5" height="43"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="里程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Jd-si-42z">
+                                                    <rect key="frame" x="90" y="0.0" width="45.5" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="n9P-Pg-99Q">
-                                                    <rect key="frame" x="133.5" y="0.0" width="33.5" height="43"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="n9P-Pg-99Q">
+                                                    <rect key="frame" x="135.5" y="0.0" width="45.5" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电报" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-BN-9YN">
-                                                    <rect key="frame" x="167" y="0.0" width="66.5" height="43"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电报" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-BN-9YN">
+                                                    <rect key="frame" x="181" y="0.0" width="56.5" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMIS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kZb-LH-CTb">
-                                                    <rect key="frame" x="233.5" y="0.0" width="76" height="43"/>
+                                                    <rect key="frame" x="237.5" y="0.0" width="60.5" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="局" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Xn-kH-muq">
-                                                    <rect key="frame" x="309.5" y="0.0" width="33.5" height="43"/>
+                                                    <rect key="frame" x="298" y="0.0" width="45" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.20931127660000001" green="0.45267108249999999" blue="0.79565915200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Xn-kH-muq" firstAttribute="width" secondItem="kZb-LH-CTb" secondAttribute="width" multiplier="0.75" id="1c1-DA-HPu"/>
+                                                <constraint firstItem="7Xn-kH-muq" firstAttribute="width" secondItem="Kmu-NN-oee" secondAttribute="width" multiplier="0.5" id="8dA-Kn-0bB"/>
+                                                <constraint firstItem="7Xn-kH-muq" firstAttribute="width" secondItem="9Jd-si-42z" secondAttribute="width" id="apK-R5-5lE"/>
+                                                <constraint firstItem="7Xn-kH-muq" firstAttribute="width" secondItem="tlS-BN-9YN" secondAttribute="width" multiplier="0.8" id="jBd-RM-tQ3"/>
+                                                <constraint firstItem="7Xn-kH-muq" firstAttribute="width" secondItem="n9P-Pg-99Q" secondAttribute="width" id="mlk-bH-g2X"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -376,10 +394,6 @@
                                     <outlet property="railwayBureauLabel" destination="7Xn-kH-muq" id="wRE-tw-Oi3"/>
                                     <outlet property="telegraphCodeLabel" destination="tlS-BN-9YN" id="E76-m8-84e"/>
                                     <outlet property="tmisCodeLabel" destination="kZb-LH-CTb" id="IlJ-cD-2e2"/>
-                                    <segue destination="oRS-Y4-60P" kind="show" identifier="ShowRouteTable" id="gmr-gx-W9b">
-                                        <segue key="commit" inheritsFrom="parent" id="3GT-1q-yiC"/>
-                                        <segue key="preview" inheritsFrom="commit" id="wQX-mY-1VR"/>
-                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -388,6 +402,9 @@
                             <outlet property="delegate" destination="qLa-Ck-qFW" id="v6Z-Zm-ukg"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="1cF-OT-f68">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="P9j-XH-tE5"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsJ-r4-44B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,7 +431,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="zhG-jD-yCL"/>
         <segue reference="Fb0-QZ-7yo"/>
-        <segue reference="wQX-mY-1VR"/>
     </inferredMetricsTieBreakers>
 </document>
