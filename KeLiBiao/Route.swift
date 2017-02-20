@@ -16,9 +16,5 @@ struct Route {
 	let kilometeage: String
 	let id: String
 	let verificationCode: String
-	
-	var description: String {
-		return "\(type(of: self)): [名称: \(name), 起站: \(originStation), 止站: \(terminalStation), 里程: \(kilometeage), id: \(id), 验证码: \(verificationCode)]"
-	}
-	
+
 }

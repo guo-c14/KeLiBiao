@@ -24,9 +24,7 @@ class Request {
 			Alamofire.request("http://trs.xd8.cn/route/checkdevice/0/\(udid)".encodeForUrl).validate().responseString { response in
 				switch response.result {
 				case .success(let value):
-					let startIndex = value.startIndex
-					let endIndex = value.index(startIndex, offsetBy: 8)
-					let code = value.replacingCharacters(in: startIndex ..< endIndex, with: "")
+					let code = Parser.parseActivationCode(value)
 					if code != "none" {
 						activationCode = code
 					} else {
@@ -46,9 +44,7 @@ class Request {
 			Alamofire.request("http://trs.xd8.cn/route/checkdevice/1/\(udid)/\(code)".encodeForUrl).validate().responseString { response in
 				switch response.result {
 				case .success(let value):
-					let startIndex = value.startIndex
-					let endIndex = value.index(startIndex, offsetBy: 8)
-					let code = value.replacingCharacters(in: startIndex ..< endIndex, with: "")
+					let code = Parser.parseActivationCode(value)
 					if code != "none" {
 						activationCode = code
 						completionHandler(true)

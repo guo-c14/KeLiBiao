@@ -10,6 +10,12 @@ import Foundation
 
 class Parser {
 	
+	static func parseActivationCode(_ response: String) -> String {
+		let startIndex = response.startIndex
+		let endIndex = response.index(startIndex, offsetBy: 8)
+		return response.replacingCharacters(in: startIndex ..< endIndex, with: "")
+	}
+	
 	static func parseRouteList(_ response: String) -> [Route] {
 		var routes = [Route]()
 		let routeStrGroup = response.components(separatedBy: "||")

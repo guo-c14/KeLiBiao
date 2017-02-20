@@ -17,9 +17,5 @@ struct Station {
 	let telegraphCode: String
 	let tmisCode: String
 	let railwayBureau: String
-	
-	var description: String {
-		return "\(type(of: self)): [名称: \(name), 限制: \(limit), 接算标识: \(mark), 里程: \(kilometeage), 电报码: \(telegraphCode), TMIS码: \(tmisCode), 路局: \(railwayBureau)]"
-	}
 
 }
